@@ -55,3 +55,26 @@ func Test(t *testing.T) {
 		)
 	}
 }
+
+func TestRedo(t *testing.T) {
+	for _, test := range testCases {
+		t.Run(
+			fmt.Sprintf("strs=%v expected=%v", test.strs, test.expected),
+			func(t *testing.T) {
+				actual := groupAnagramsRedo(test.strs)
+
+				for _, strs := range test.expected {
+					slices.Sort(strs)
+				}
+				sort.Slice(test.expected, less(test.expected))
+
+				for _, strs := range actual {
+					slices.Sort(strs)
+				}
+				sort.Slice(actual, less(actual))
+
+				assert.Equal(t, test.expected, actual)
+			},
+		)
+	}
+}
