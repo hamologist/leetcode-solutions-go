@@ -1,6 +1,6 @@
 module hamologist.com/leetcode-go
 
-go 1.22
+go 1.23
 
 require (
 	github.com/davecgh/go-spew v1.1.0 // indirect
